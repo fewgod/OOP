@@ -25,9 +25,11 @@ class SpaceGameWindow(arcade.Window):
         arcade.set_background_color(arcade.color.BLACK)
         self.world = World(width, height)
         self.ship_sprite = ModelSprite('images/ship.png',model=self.world.ship)
+        self.gold_sprite = ModelSprite('images/gold.png',model=self.world.gold)
  
     def on_draw(self):
         arcade.start_render()
+        self.gold_sprite.draw()
         self.ship_sprite.draw()
  
     def on_key_press(self, key, key_modifiers):

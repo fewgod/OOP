@@ -5,6 +5,7 @@ class World:
         self.height = height
  
         self.ship = Ship(self, 100, 100)
+        self.gold = Gold(self, 400, 400)
 
     def on_key_press(self, key, key_modifiers):
         if key == arcade.key.SPACE:
@@ -43,3 +44,9 @@ class Ship:
             if self.x > self.world.width:
                 self.x = 0
             self.x += 5
+
+class Gold:
+    def __init__(self, world, x, y):
+        self.world = world
+        self.x = x
+        self.y = y
