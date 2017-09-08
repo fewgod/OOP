@@ -21,14 +21,17 @@ class Ship:
         self.world = world
         self.x = x
         self.y = y
+        self.angle = 0
         self.direction = Ship.DIR_VERTICAL
  
  
     def switch_direction(self):
         if self.direction == Ship.DIR_HORIZONTAL:
             self.direction = Ship.DIR_VERTICAL
+            self.angle = 0
         else:
             self.direction = Ship.DIR_HORIZONTAL
+            self.angle = -90
  
  
     def update(self, delta):
