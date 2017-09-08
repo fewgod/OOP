@@ -29,6 +29,9 @@ class SpaceGameWindow(arcade.Window):
         arcade.start_render()
         self.ship_sprite.draw()
  
+    def on_key_press(self, key, key_modifiers):
+        self.world.on_key_press(key, key_modifiers)
+
     def update(self, delta):
         self.world.update(delta)
 
