@@ -23,7 +23,7 @@ class SpaceGameWindow(arcade.Window):
         super().__init__(width, height)
  
         arcade.set_background_color(arcade.color.BLACK)
-        self.world = World(width, height)
+        self.world = World(width, height) #new object เป็นobject class World
         self.ship_sprite = ModelSprite('images/ship.png',model=self.world.ship)
         self.gold_sprite = ModelSprite('images/gold.png',model=self.world.gold)
  
