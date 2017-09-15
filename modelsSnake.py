@@ -43,12 +43,9 @@ class Snake:
             self.y = self.world.height
         self.x += DIR_OFFSET[self.direction][0]*Snake.BLOCK_SIZE #จะให้ขยับแกนxตามทิศที่หันหน้าอยู่ เลยคูณกับตัวแรกของข้อมูลย่อยในขลิสDIR_OFFSET
         self.y += DIR_OFFSET[self.direction][1]*Snake.BLOCK_SIZE
-        #self.body = [(self.x,self.y), #ที่เติมเพิ่ม
-        #            (self.x-Snake.BLOCK_SIZE, self.y),
-        #           (self.x-2*Snake.BLOCK_SIZE, self.y)]
-        self.body = [(self.x,self.y), #ที่เติมเพิ่ม
+        self.body = [(self.x,self.y), #ให้ช่องแรกขยับและช่อง2ไปแทนที่ช่องแรก
                      (temp1x, temp1y),
-                     (temp2x, temp2y)]
+                     (temp2x, temp2y)]#และช่อง3ก็ไปแทนที่ช่อง2แทน
         self.wait_time = 0 #รีเวลารอเพื่อขยับใหม่
  
 class World:
