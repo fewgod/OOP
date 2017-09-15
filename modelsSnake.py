@@ -1,3 +1,4 @@
+import arcade.key #นำปุ่มที่ได้รับมาใช้งานในนี้
 DIR_UP = 1
 DIR_RIGHT = 2
 DIR_DOWN = 3
@@ -42,6 +43,15 @@ class World:
  
         self.snake = Snake(self, width // 2, height // 2)
  
+    def on_key_press(self, key, key_modifiers):
+        if key == arcade.key.LEFT: #ถ้ากดLEFTจะเปลี่ยนdirectionของงู
+            self.snake.direction = DIR_LEFT
+        if key == arcade.key.RIGHT: #ถ้ากดRIGHTจะเปลี่ยนdirectionของงู
+            self.snake.direction = DIR_RIGHT
+        if key == arcade.key.UP:
+            self.snake.direction = DIR_UP
+        if key == arcade.key.DOWN:
+            self.snake.direction = DIR_DOWN
  
     def update(self, delta):
         self.snake.update(delta)
