@@ -15,6 +15,11 @@ class Snake:
         self.world = world
         self.x = x
         self.y = y
+        self.body = [(x,y),
+                     (x-Snake.BLOCK_SIZE, y),
+                     (x-2*Snake.BLOCK_SIZE, y)]
+        self.length = 3 #ให้งูมีขนาด3ช่อง
+
         self.wait_time = 0 
         self.direction = DIR_DOWN #เริ่มต้นมาหันหน้าเคลื่อนที่ไปทางขวา
  
