@@ -21,14 +21,18 @@ class Snake:
         self.length = 3 #ให้งูมีขนาด3ช่อง
 
         self.wait_time = 0 
-        self.direction = DIR_DOWN #เริ่มต้นมาหันหน้าเคลื่อนที่ไปทางขวา
+        self.direction = DIR_RIGHT #เริ่มต้นมาหันหน้าเคลื่อนที่ไปทางขวา
  
     def update(self, delta):
         self.wait_time += delta
- 
-        if self.wait_time < Snake.MOVE_WAIT: #ต้องรอจนถึงเวลาที่ตั้งไว้ถึงจะขยับได้อีกที
+        temp1x =self.x #ไว้เก็บพิกัดแกนx,yช่องแรกก่อนขยับครั้งนี้
+        temp1y =self.y
+        temp2x =self.body[1][0]#ไว้เก็บพิกัดแกนx,yช่อง2ก่อนขยับครั้งนี้
+        temp2y =self.body[1][1]
+        if self.wait_time < Snake.MOVE_WAIT:
             return
  
+        self.wait_time = 0
         if self.x > self.world.width:
             self.x = 0
         if self.x < 0:
@@ -39,6 +43,12 @@ class Snake:
             self.y = self.world.height
         self.x += DIR_OFFSET[self.direction][0]*Snake.BLOCK_SIZE #จะให้ขยับแกนxตามทิศที่หันหน้าอยู่ เลยคูณกับตัวแรกของข้อมูลย่อยในขลิสDIR_OFFSET
         self.y += DIR_OFFSET[self.direction][1]*Snake.BLOCK_SIZE
+        #self.body = [(self.x,self.y), #ที่เติมเพิ่ม
+        #            (self.x-Snake.BLOCK_SIZE, self.y),
+        #           (self.x-2*Snake.BLOCK_SIZE, self.y)]
+        self.body = [(self.x,self.y), #ที่เติมเพิ่ม
+                     (temp1x, temp1y),
+                     (temp2x, temp2y)]
         self.wait_time = 0 #รีเวลารอเพื่อขยับใหม่
  
 class World:
